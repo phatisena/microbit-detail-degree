@@ -47,13 +47,27 @@ namespace dir {
         basic.clearScreen()
         posdir = [Math.cos(d2r(deg + 90)), Math.sin(d2r(deg + 90))]
         posval = []
-        for (let n = 0; n <= linelen; n++) {
+        for (let n = 0; n < linelen; n++) {
             posval.push([Math.round(2 - n * posdir[0]), Math.round(2 - n * posdir[1])])
         }
         for (let value of posval) {
             led.plot(value[0], value[1])
         }
         curdeg = deg
+    }
+
+    let handcurdir: number = undefined
+
+    //%blockid=dir_dirupdate
+    //%block="on direction update in $dir"
+    //%group="dir update"
+    //%weight=1
+    export function onDirUpdate(dir: number, handler: () => void ) {
+        if (dir == handcurdir && !checkFullSrc(false)) {
+            return
+        }
+        handcurdir == dir
+        handler()
     }
 }
 
