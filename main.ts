@@ -60,14 +60,16 @@ namespace dir {
 
     //%blockid=dir_dirupdate
     //%block="on direction update in $dir"
+    //%draggableParameters="reporter"
     //%group="dir update"
     //%weight=1
-    export function onDirUpdate(dir: number, handler: () => void ) {
+    export function onDirUpdate(dir: number, handler: (idir: number) => void ) {
         if (dir == handcurdir && !checkFullSrc(false)) {
             return
         }
         handcurdir == dir
-        handler()
+        let odir = dir
+        handler(odir)
     }
 }
 
