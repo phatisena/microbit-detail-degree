@@ -60,6 +60,7 @@ namespace dir {
 
     //%blockid=dir_dirupdate
     //%block="on direction update in $dir"
+    //%idir.shadow=variables_get idir.defl=udir
     //%draggableParameters="reporter"
     //%group="dir update"
     //%weight=1
